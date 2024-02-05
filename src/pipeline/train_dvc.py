@@ -19,7 +19,7 @@ def main():
 
     #params = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.yaml")))
 
-    live = DVCLiveLogger(save_dvc_exp = True, log_model = True, dir = "../results1") # report = "notebook", log_model=True
+    live = DVCLiveLogger(save_dvc_exp = True, log_model = True, dir = "./results") # report = "notebook", log_model=True
 
     print(params["network_parameter"]["input_size"])
     
@@ -33,7 +33,7 @@ def main():
                 learning_rate= params["training_parameter"]["learning_rate"])
 
     # Trainer
-    checkpoint_callback = ModelCheckpoint(dirpath="../lightning_models/", save_top_k=1, monitor="val_loss", filename='{run_name}_lungseg-{epoch:02d}-{val_loss:.2f}')
+    checkpoint_callback = ModelCheckpoint(dirpath="../lightning_models/", save_top_k=1, monitor="val_loss", filename='model') # {run_name}_lungseg-{epoch:02d}-{val_loss:.2f}
 
     trainer = Trainer(min_epochs=0, max_epochs= params["training_parameter"]["num_epochs"], accelerator = params["compute"]["accelerator"], callbacks=[checkpoint_callback],
                         logger = live, log_every_n_steps = 5)

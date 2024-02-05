@@ -13,7 +13,6 @@ stages:
       - dataset.data_dir
     outs:
     - ./data/datalist.csv
-    always_changed: true
   train:
     cmd: python src/pipeline/train_dvc.py --params src/pipeline/params_krs.yaml
     deps:
@@ -27,4 +26,13 @@ stages:
       - network_parameter.num_classes
       - dataset.num_workers
     outs:
-    - .ckpt
+    - model.ckpt
+metrics:
+- results/metrics.json
+plots:
+- results/plots/metrics:
+    x: step
+artifacts:
+  best:
+    path: results/artifacts/run_name=0_lungseg-epoch=01-val_loss=0.23.ckpt
+    type: model

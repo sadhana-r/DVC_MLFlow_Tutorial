@@ -40,4 +40,7 @@ dvc stage add --name preprocess --deps data/MontgomerySet --deps data/ChinaSet_A
  - with error in dependency location
   Command: dvc repro
 
+## To track experiments
+
+dvc exp run --name NAME
 
