@@ -1,0 +1,30 @@
+network_parameter:
+    input_size: [512,512]
+    num_classes: 2
+
+training_parameter:
+    learning_rate: 0.001
+    batch_size: 4
+    num_epochs: 5
+
+dataset:
+    num_workers: 0
+    data_dir: 'C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data'
+    montgomery_image_path: 'C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/CXR_png'
+    montgomery_mask_path: 'C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/ManualMask'
+    shenzen_image_path: 'C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR'
+    shenzen_mask_path: 'C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR_segs'
+
+compute:
+    accelerator: 'cpu'
+    devices: [0]
+    precision: 16
+
+mlflow:
+    mlflow_uri: "http://localhost:5000"
+    experiment_name: "FullDatasetLungSeg"
+    run_name: "baseline_fixeddataset"
+    experiment_description : ("Adult Lung segmentation from 2D Chest X-Rays")
+    experiment_tags: {"project_name": "LungAirSeg_MLOps",
+     "Dataset": "Montogmery + Shenzen",
+     "mlflow.note.content": experiment_description}

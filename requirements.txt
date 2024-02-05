@@ -1,0 +1,16 @@
+torch
+lightning
+pyaml
+mlflow
+dvc
+monai
+SimpleITK
+dvc_gdrive
+pillow
+matplotlib
+pandas
+pyyaml
+dvclive
+einops
+
+
