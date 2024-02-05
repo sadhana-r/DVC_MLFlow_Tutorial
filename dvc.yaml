@@ -25,8 +25,6 @@ stages:
       - network_parameter.input_size
       - network_parameter.num_classes
       - dataset.num_workers
-    outs:
-    - model.ckpt
 metrics:
 - results/metrics.json
 plots:
@@ -34,5 +32,5 @@ plots:
     x: step
 artifacts:
   best:
-    path: results/artifacts/run_name=0_lungseg-epoch=01-val_loss=0.23.ckpt
+    path: results/artifacts/model-v1.ckpt
     type: model

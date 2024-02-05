@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/pipeline/preprocess.py --params src/pipeline/params_krs.yaml
+    deps:
+    - path: ./data/ChinaSet_AllFiles
+      hash: md5
+      md5: 94fdfe6ad2e20ad94c246a1e57e35b1b.dir
+      size: 3784806008
+      nfiles: 1893
+    - path: ./data/MontgomerySet
+      hash: md5
+      md5: f9e470eb0a5a0ee3871b1e124778fae1.dir
+      size: 618654288
+      nfiles: 557
+    params:
+      src/pipeline/params_krs.yaml:
+        dataset.data_dir: /projects/sadhana/DVC_MLFlow_Tutorial/data
+        dataset.montgomery_image_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/CXR_png
+        dataset.montgomery_mask_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/ManualMask
+        dataset.shenzen_image_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR
+        dataset.shenzen_mask_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR_segs
+    outs:
+    - path: ./data/datalist.csv
+      hash: md5
+      md5: 3b3bf03d8f1c2bc8c1d11f6675495543
+      size: 148672
