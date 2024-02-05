@@ -3,7 +3,7 @@ network_parameter:
     num_classes: 2
 
 training_parameter:
-    learning_rate: 0.001
+    learning_rate: 0.003
     batch_size: 6
     num_epochs: 2
 

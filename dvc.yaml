@@ -32,5 +32,5 @@ plots:
     x: step
 artifacts:
   best:
-    path: results/artifacts/model-v1.ckpt
+    path: results/artifacts/model.ckpt
     type: model

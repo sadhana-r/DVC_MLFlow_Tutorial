@@ -25,3 +25,20 @@ stages:
       hash: md5
       md5: 3b3bf03d8f1c2bc8c1d11f6675495543
       size: 148672
+  train:
+    cmd: python src/pipeline/train_dvc.py --params src/pipeline/params_krs.yaml
+    deps:
+    - path: ./data/datalist.csv
+      hash: md5
+      md5: 3b3bf03d8f1c2bc8c1d11f6675495543
+      size: 148672
+    params:
+      src/pipeline/params_krs.yaml:
+        dataset.data_dir: /projects/sadhana/DVC_MLFlow_Tutorial/data
+        dataset.num_workers: 0
+        network_parameter.input_size:
+        - 512
+        - 512
+        network_parameter.num_classes: 2
+        training_parameter.batch_size: 6
+        training_parameter.learning_rate: 0.003
