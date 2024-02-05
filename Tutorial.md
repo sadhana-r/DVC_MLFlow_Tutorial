@@ -19,7 +19,7 @@ dvc remote add --default drive gdrive://<Folder ID>
 dvc remote modify drive gdrive_acknowledge_abuse true
 
 ** Check config file **
-
+dvc 
 
 # DVC pipeline
 
