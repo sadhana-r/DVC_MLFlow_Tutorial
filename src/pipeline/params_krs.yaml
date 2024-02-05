@@ -16,7 +16,7 @@ dataset:
     shenzen_mask_path: '/projects/sadhana/DVC_MLFlow_Tutorial\data/ChinaSet_AllFiles/CXR_segs'
 
 compute:
-    accelerator: 'cpu'
+    accelerator: 'gpu'
     devices: [0]
     precision: 16
 
