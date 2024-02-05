@@ -18,8 +18,9 @@ dvc add data/..
 dvc remote add --default drive gdrive://<Folder ID>
 dvc remote modify drive gdrive_acknowledge_abuse true
 
-** Check config file **
-dvc 
+** Check config file ** 
+### On remote server
+dvc remote modify gdrive gdrive_user_credentials_file ..\gdrive_credentials.json
 
 # DVC pipeline
 

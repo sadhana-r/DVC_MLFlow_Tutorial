@@ -1,13 +1,19 @@
 import os
 import pandas as pd
 import yaml
+import argparse
 
 def file_path_to_abnormality(filepath):
     return bool(int(filepath[12]))
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--params', '-p', type = str, help = 'params file', required = True)
+
 def  main():
 
-    params = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.yaml")))
+    args = parser.parse_args()
+
+    params = yaml.safe_load(open(args.params))
     #params = yaml.safe_load(open("params.yaml"))
 
     params["dataset"]["montgomery_image_path"]

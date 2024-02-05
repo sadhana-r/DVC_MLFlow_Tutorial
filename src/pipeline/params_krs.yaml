@@ -5,15 +5,15 @@ network_parameter:
 training_parameter:
     learning_rate: 0.001
     batch_size: 4
-    num_epochs: 5
+    num_epochs: 1
 
 dataset:
     num_workers: 0
-    data_dir: '/projects/sadhana/DVC_MLFlow_Tutorial\data'
-    montgomery_image_path: '/projects/sadhana/DVC_MLFlow_Tutorial\data/MontgomerySet/CXR_png'
-    montgomery_mask_path: '/projects/sadhana/DVC_MLFlow_Tutorial\data/MontgomerySet/ManualMask'
-    shenzen_image_path: '/projects/sadhana/DVC_MLFlow_Tutorial\data/ChinaSet_AllFiles/CXR'
-    shenzen_mask_path: '/projects/sadhana/DVC_MLFlow_Tutorial\data/ChinaSet_AllFiles/CXR_segs'
+    data_dir: '/projects/sadhana/DVC_MLFlow_Tutorial/data'
+    montgomery_image_path: '/projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/CXR_png'
+    montgomery_mask_path: '/projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/ManualMask'
+    shenzen_image_path: '/projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR'
+    shenzen_mask_path: '/projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR_segs'
 
 compute:
     accelerator: 'gpu'

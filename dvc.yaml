@@ -1,11 +1,11 @@
 stages:
   preprocess:
-    cmd: python src/pipeline/preprocess.py
+    cmd: python src/pipeline/preprocess.py --params src/pipeline/params_krs.yaml
     deps:
     - ./data/MontgomerySet
     - ./data/ChinaSet_AllFiles
     params:
-    - ./src/pipeline/params.yaml:
+    - ./src/pipeline/params_krs.yaml:
       - dataset.montgomery_image_path # Assumes params.yaml otherwise must speciffy different file name
       - dataset.montgomery_mask_path
       - dataset.shenzen_image_path
@@ -13,12 +13,13 @@ stages:
       - dataset.data_dir
     outs:
     - ./data/datalist.csv
+    always_changed: true
   train:
-    cmd: python src/pipeline/train_dvc.py
+    cmd: python src/pipeline/train_dvc.py --params src/pipeline/params_krs.yaml
     deps:
     - ./data/datalist.csv
     params:
-    - ./src/pipeline/params.yaml:
+    - ./src/pipeline/params_krs.yaml:
       - dataset.data_dir
       - training_parameter.batch_size
       - training_parameter.learning_rate

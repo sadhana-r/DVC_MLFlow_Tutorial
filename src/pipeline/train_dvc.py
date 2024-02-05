@@ -1,5 +1,6 @@
 import yaml
 import os
+import argparse
 from dvclive.lightning import DVCLiveLogger
 # from lightning.pytorch.loggers import MLFlowLogger
 from lightning.pytorch.callbacks import ModelCheckpoint
@@ -7,9 +8,16 @@ from lightning.pytorch.trainer.trainer import Trainer
 from model import Net
 from datamodule import LungSegmentationDataModule
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--params', '-p', type = str, help = 'params file', required = True)
+
 def main():
 
-    params = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.yaml")))
+    args = parser.parse_args()
+
+    params = yaml.safe_load(open(args.params))
+
+    #params = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.yaml")))
 
     live = DVCLiveLogger(save_dvc_exp = True, log_model = True, dir = "../results1") # report = "notebook", log_model=True
 
