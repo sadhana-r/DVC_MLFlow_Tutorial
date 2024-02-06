@@ -26,7 +26,7 @@ stages:
       md5: 3b3bf03d8f1c2bc8c1d11f6675495543
       size: 148672
   train:
-    cmd: python src/pipeline/train_dvc.py --params src/pipeline/params_krs.yaml
+    cmd: python src/pipeline/train_mlflow.py --params src/pipeline/params_krs.yaml
     deps:
     - path: ./data/datalist.csv
       hash: md5

@@ -14,7 +14,7 @@ stages:
     outs:
     - ./data/datalist.csv
   train:
-    cmd: python src/pipeline/train_dvc.py --params src/pipeline/params_krs.yaml
+    cmd: python src/pipeline/train_mlflow.py --params src/pipeline/params_krs.yaml
     deps:
     - ./data/datalist.csv
     params:
