@@ -1,8 +1,23 @@
-conda activate mlops
+# DVC MLOps tutorial
 
-# Activate git and DVC
+## Step 1: Set up python environment
+
+```
+
+conda env create --name mlops_env
+pip install -r requirements.txt
+
+```
+
+# Initialize DVC
+
+https://dvc.org/doc/command-reference/init
+
+```
 git init
 dvc init
+
+```
 
 # Commit dvc files to git
 
