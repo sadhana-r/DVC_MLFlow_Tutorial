@@ -6,7 +6,7 @@ network_parameter:
 
 training_parameter:
   learning_rate: 0.002
-  batch_size: 4
+  batch_size: 6
   num_epochs: 5
 
 dataset:

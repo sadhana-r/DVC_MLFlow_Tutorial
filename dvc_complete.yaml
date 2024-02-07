@@ -23,5 +23,3 @@ stages:
     - network_parameter.input_size
     - network_parameter.num_classes
     - dataset.num_workers
-    outs:
-    - .ckpt
