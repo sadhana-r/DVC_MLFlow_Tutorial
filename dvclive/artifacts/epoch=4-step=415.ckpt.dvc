@@ -1,0 +1,5 @@
+outs:
+- md5: 6601a5aa0994bd0ec65b51177f78e4ef
+  size: 114920
+  hash: md5
+  path: epoch=4-step=415.ckpt
