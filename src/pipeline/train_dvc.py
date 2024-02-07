@@ -34,9 +34,9 @@ def main():
 
     # Trainer
     checkpoint_callback = ModelCheckpoint(dirpath="../lightning_models/", save_top_k=1, monitor="val_loss", filename='model') # {run_name}_lungseg-{epoch:02d}-{val_loss:.2f}
-
-    trainer = Trainer(min_epochs=0, max_epochs= params["training_parameter"]["num_epochs"], accelerator = params["compute"]["accelerator"], callbacks=[checkpoint_callback],
-                        logger = live, log_every_n_steps = 5)
+#
+    trainer = Trainer(min_epochs=0, max_epochs= params["training_parameter"]["num_epochs"], accelerator = params["compute"]["accelerator"] ,
+                        logger = live, log_every_n_steps = 5, callbacks=[checkpoint_callback])
 
     trainer.fit(model,dm)
 
