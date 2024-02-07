@@ -1,0 +1,5 @@
+outs:
+- md5: f41c123c3d398bcf57f92116b2367c53
+  size: 116898
+  hash: md5
+  path: model-v1.ckpt

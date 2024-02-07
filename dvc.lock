@@ -1,11 +1,7 @@
 schema: '2.0'
 stages:
   preprocess:
-<<<<<<< Updated upstream
-    cmd: python src/pipeline/preprocess.py --params src/pipeline/params_krs.yaml
-=======
     cmd: python src/pipeline/preprocess.py --params src/pipeline/params.yaml
->>>>>>> Stashed changes
     deps:
     - path: ./data/ChinaSet_AllFiles
       hash: md5
@@ -18,49 +14,31 @@ stages:
       size: 618654288
       nfiles: 557
     params:
-<<<<<<< Updated upstream
-      src/pipeline/params_krs.yaml:
-        dataset.data_dir: /projects/sadhana/DVC_MLFlow_Tutorial/data
-        dataset.montgomery_image_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/CXR_png
-        dataset.montgomery_mask_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/MontgomerySet/ManualMask
-        dataset.shenzen_image_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR
-        dataset.shenzen_mask_path: /projects/sadhana/DVC_MLFlow_Tutorial/data/ChinaSet_AllFiles/CXR_segs
-    outs:
-    - path: ./data/datalist.csv
-      hash: md5
-      md5: 3b3bf03d8f1c2bc8c1d11f6675495543
-      size: 148672
-  train:
-    cmd: python src/pipeline/train_mlflow.py --params src/pipeline/params_krs.yaml
-    deps:
-    - path: ./data/datalist.csv
-      hash: md5
-      md5: 3b3bf03d8f1c2bc8c1d11f6675495543
-      size: 148672
-    params:
-      src/pipeline/params_krs.yaml:
-        dataset.data_dir: /projects/sadhana/DVC_MLFlow_Tutorial/data
-        dataset.num_workers: 0
-        network_parameter.input_size:
-        - 512
-        - 512
-        network_parameter.num_classes: 2
-        training_parameter.batch_size: 6
-        training_parameter.learning_rate: 0.003
-=======
       src/pipeline/params.yaml:
         dataset.data_dir: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data
-        dataset.montgomery_image_path: 
-          C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/CXR_png
-        dataset.montgomery_mask_path: 
-          C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/ManualMask
-        dataset.shenzen_image_path: 
-          C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR
-        dataset.shenzen_mask_path: 
-          C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR_segs
+        dataset.montgomery_image_path: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/CXR_png
+        dataset.montgomery_mask_path: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/MontgomerySet/ManualMask
+        dataset.shenzen_image_path: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR
+        dataset.shenzen_mask_path: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data/ChinaSet_AllFiles/CXR_segs
     outs:
     - path: ./data/datalist.csv
       hash: md5
       md5: c9b7475676b45eda0a294fdd54ed5203
       size: 206579
->>>>>>> Stashed changes
+  train:
+    cmd: python src/pipeline/train_dvc.py --params src/pipeline/params.yaml
+    deps:
+    - path: ./data/datalist.csv
+      hash: md5
+      md5: c9b7475676b45eda0a294fdd54ed5203
+      size: 206579
+    params:
+      src/pipeline/params.yaml:
+        dataset.data_dir: C:\Users\sadhana.ravikumar\Documents\LungAirProject\MLOps_Tutorial_Feb2024\data
+        dataset.num_workers: 0
+        network_parameter.input_size:
+        - 512
+        - 512
+        network_parameter.num_classes: 2
+        training_parameter.batch_size: 4
+        training_parameter.learning_rate: 0.002

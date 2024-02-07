@@ -4,7 +4,7 @@ import torch.optim as optim
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 from monai.losses import DiceCELoss
-from monai.networks.nets import UNETR
+from monai.networks.nets import UNETR, UNet
 import torchmetrics
 
 
@@ -12,7 +12,8 @@ class Net(L.LightningModule):
     def __init__(self, input_size, num_classes, learning_rate):
         super().__init__()
 
-        self.model = UNETR(in_channels = 1, out_channels = num_classes, img_size = input_size, spatial_dims=2)
+        self.model = UNet(spatial_dims = 2, in_channels = 1, out_channels = num_classes, channels = (8,16,24), strides = (1,1))
+        #self.model = UNETR(in_channels = 1, out_channels = num_classes, img_size = input_size, spatial_dims=2)
         self.loss = DiceCELoss(to_onehot_y=True, softmax=True)
         self.learning_rate = learning_rate
         self.train_dice = torchmetrics.classification.Dice(num_classes=2)

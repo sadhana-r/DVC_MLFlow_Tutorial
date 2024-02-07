@@ -1,5 +1,0 @@
-outs:
-- md5: 28cf87e205656a1e5fd81bf612799787
-  size: 1055083610
-  hash: md5
-  path: run_name=0_lungseg-epoch=01-val_loss=0.23.ckpt
