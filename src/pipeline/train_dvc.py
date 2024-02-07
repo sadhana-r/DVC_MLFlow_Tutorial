@@ -19,7 +19,7 @@ def main():
 
     #params = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.yaml")))
 
-    live = DVCLiveLogger(save_dvc_exp = True, log_model = True, dir = "./results") # report = "notebook", log_model=True
+    live = DVCLiveLogger(save_dvc_exp = True, log_model = True) # report = "notebook", log_model=True
 
     print(params["network_parameter"]["input_size"])
     
