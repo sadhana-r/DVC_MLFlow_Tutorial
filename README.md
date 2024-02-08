@@ -145,5 +145,9 @@ dvc exp run --name --set-params training_parameter.batch_size=6
 ## Sharing experiments
 
 ```
+dvc exp list --all-commits # View all experiments
+
 dvc exp push [git_remote] [experiment_name] --rev [can specify commit]
+
+dvc exp list -all origin # See the experiments that exist in the remote repo
 ```
